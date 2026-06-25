@@ -112,8 +112,15 @@ function autoSpeak(){
   const u=new SpeechSynthesisUtterance(msg);
   u.lang='en-IN'; u.rate=0.88; u.pitch=1.05;
   const vs=speechSynthesis.getVoices();
-  const v=vs.find(v=>v.lang==='en-IN')||vs.find(v=>v.lang.startsWith('en'));
+  const maleNames=['Male','male','David','James','Daniel','Rishi','Google हिन्दी','en-IN-Standard-B','en-IN-Wavenet-B','en-IN-Standard-C','en-IN-Wavenet-C'];
+  const v=vs.find(v=>maleNames.some(n=>v.name.includes(n))&&v.lang.startsWith('en'))
+    ||vs.find(v=>v.lang==='en-IN'&&v.name.toLowerCase().includes('male'))
+    ||vs.find(v=>v.name==='Google UK English Male')
+    ||vs.find(v=>v.name==='Microsoft David')
+    ||vs.find(v=>v.lang==='en-IN')
+    ||vs.find(v=>v.lang.startsWith('en'));
   if(v) u.voice=v;
+  u.pitch=0.85;
   if(spOuter){u.onstart=()=>spOuter.classList.add('speaking');u.onend=()=>spOuter.classList.remove('speaking');}
   speechSynthesis.cancel(); speechSynthesis.speak(u);
 }
