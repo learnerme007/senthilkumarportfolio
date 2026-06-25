@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About — Dr. P.S. Senthilkumar</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.timeline{position:relative;padding-left:2rem;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border);}
+.tl-item{position:relative;padding:0 0 2.5rem 2rem;opacity:0;transform:translateX(-20px);transition:opacity .6s,transform .6s;}
+.tl-item.in{opacity:1;transform:none;}
+.tl-item::before{content:'';position:absolute;left:-4px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--gold-dim);}
+.tl-date{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.14em;color:var(--gold);margin-bottom:.3rem;}
+.tl-role{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:.2rem;}
+.tl-org{font-size:.8rem;color:var(--muted);line-height:1.5;}
+.edu-stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:3rem;}
+.edu-card{background:var(--card);padding:1.8rem;position:relative;overflow:hidden;transition:background .3s;opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s,background .3s;}
+.edu-card.in{opacity:1;transform:none;}
+.edu-card:hover{background:var(--surface);}
+.edu-ghost{position:absolute;bottom:-.5rem;right:.5rem;font-family:'Playfair Display',serif;font-size:5rem;font-weight:900;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;}
+.edu-yr{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--gold);margin-bottom:.5rem;}
+.edu-deg{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.2rem;}
+.edu-field{font-size:.75rem;color:var(--gold);margin-bottom:.4rem;}
+.edu-inst{font-size:.75rem;color:var(--muted);line-height:1.5;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.skills-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.skills-list li{display:flex;align-items:center;gap:.8rem;padding:.75rem 1rem;border:1px solid var(--border);font-size:.85rem;transition:border-color .3s;}
+.skills-list li:hover{border-color:var(--gold);}
+.skills-list li::before{content:'—';color:var(--gold);flex-shrink:0;}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:3rem;}}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur-ring"></div>
+<div id="loader"><div class="ld-name"><span>About</span></div><div class="ld-bar-w"><div class="ld-bar"></div></div><div class="ld-sub">Loading…</div></div>
+<nav id="nav">
+  <a class="nav-logo" href="index">Dr. P.S. <em>Senthilkumar</em></a>
+  <ul class="nav-links">
+    <li><a href="index">Home</a></li><li><a href="about" class="active">About</a></li>
+    <li><a href="awards">Awards</a></li><li><a href="yoga">Yoga</a></li>
+    <li><a href="gallery">Gallery</a></li><li><a href="talks">Talks</a></li>
+    <li><a href="principal">Principal</a></li>
+  </ul>
+  <a class="nav-cta" href="contact">Contact</a>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index">Home</a><a href="about">About</a><a href="awards">Awards</a>
+  <a href="yoga">Yoga</a><a href="gallery">Gallery</a>
+  <a href="talks">Talks</a><a href="principal">Principal</a>
+  <a href="contact" style="color:var(--gold)">Contact</a>
+</div>
+<div class="page-hero">
+  <p class="page-hero-eyebrow">Biography</p>
+  <h1 class="page-hero-title">The <em>Journey</em></h1>
+  <p class="page-hero-sub">25 years of education, three colleges as Principal, a Guinness World Record, and an unwavering belief that teachers are the true architects of society.</p>
+</div>
+<div class="marquee-wrap"><div class="marquee-inner">
+  <span class="sep">25+ Years Teaching</span><span class="sep">3 Colleges as Principal</span><span class="sep">Ph.D Commerce MKU</span><span class="sep">Guinness World Record</span><span class="sep">Yoga Master</span><span class="sep">NAAC Expert</span>
+  <span class="sep">25+ Years Teaching</span><span class="sep">3 Colleges as Principal</span><span class="sep">Ph.D Commerce MKU</span><span class="sep">Guinness World Record</span><span class="sep">Yoga Master</span><span class="sep">NAAC Expert</span>
+</div></div>
+<section class="sec sec-dark">
+  <div class="about-grid">
+    <div>
+      <div class="eyebrow rev">Who I Am</div>
+      <h2 class="big-h rev">Scholar. Leader.<br><em>Architect of Society.</em></h2>
+      <div class="body-txt rev">
+        <p>Dr. P.S. Senthilkumar is a distinguished academician, institutional leader, and Guinness World Record holder with over 25 years of passionate commitment to education across Tamil Nadu.</p>
+        <p>Currently serving as Principal and Advisor at KR Arts and Science College, Peraiyur (Madurai), he brings together rare academic rigor, administrative excellence, and spiritual discipline rooted in the ancient wisdom of Yoga.</p>
+        <p>A proud alumnus of Madurai Kamaraj University, he earned his Ph.D. in Commerce and has since transformed numerous institutions — building regulatory frameworks, launching new degree programs, mentoring student entrepreneurs, and connecting colleges to IIT Madras through the NPTEL framework.</p>
+        <p>He also founded the Sharp Tuition Centre — running for over a decade — delivering personalized academic support to thousands of students in Madurai.</p>
+      </div>
+      <blockquote style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--muted);border-left:2px solid var(--gold);padding-left:1.2rem;margin-top:2rem;line-height:1.65;" class="rev">
+        "Leadership is about creating the bridge between potential and achievement. As a Principal, I act as a facilitator dedicated to uncovering hidden talents."
+      </blockquote>
+    </div>
+    <div>
+      <div class="eyebrow rev">Expertise</div>
+      <ul class="skills-list">
+        <li class="rev">Academic Leadership & Institutional Management</li>
+        <li class="rev">Commerce Education & Research (Ph.D., MKU)</li>
+        <li class="rev">Yoga Asanas, Pranayama & Meditation Training</li>
+        <li class="rev">Student Placement & Career Development</li>
+        <li class="rev">IQAC & NAAC Accreditation Management</li>
+        <li class="rev">Curriculum Design & Academic Planning</li>
+        <li class="rev">Public Speaking & Invited Talks (20+ sessions)</li>
+        <li class="rev">Rural Development (Unnat Bharat Abhiyan)</li>
+        <li class="rev">Digital Commerce & PGDCA Certified</li>
+        <li class="rev">Entrepreneurship & Startup Mentoring</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="sec">
+  <div class="eyebrow rev">Career Timeline</div>
+  <h2 class="big-h rev">25 Years of <em>Impact</em></h2>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-date">Present</div><div class="tl-role">Principal & Advisor</div><div class="tl-org">KR Arts and Science College / KR Group of Institutions, Peraiyur, Madurai</div></div>
+    <div class="tl-item"><div class="tl-date">Nov 2021 – Jul 2022</div><div class="tl-role">IQAC Coordinator & Placement In-charge</div><div class="tl-org">Nagarathinam Angalammal Arts & Science College, Madurai</div></div>
+    <div class="tl-item"><div class="tl-date">Apr 2019 – Sep 2020</div><div class="tl-role">Principal</div><div class="tl-org">Nazia College of Arts & Science, Kariapatti</div></div>
+    <div class="tl-item"><div class="tl-date">Jun 2011 – Apr 2019</div><div class="tl-role">Assistant Professor, Commerce</div><div class="tl-org">N.M.S.S.V.N College, Madurai</div></div>
+    <div class="tl-item"><div class="tl-date">Jun 2009 – Apr 2011</div><div class="tl-role">Head of Department (Commerce)</div><div class="tl-org">Annai Fathima College of Arts & Science, Thirumangalam</div></div>
+    <div class="tl-item"><div class="tl-date">Jun 2007 – May 2009</div><div class="tl-role">Lecturer, Commerce</div><div class="tl-org">Parvathy's Arts & Science College, Dindigul</div></div>
+    <div class="tl-item"><div class="tl-date">Jun 2006 – Apr 2007</div><div class="tl-role">Teaching Assistant (Commerce with CA)</div><div class="tl-org">Saraswathi Narayanan College, Madurai</div></div>
+    <div class="tl-item"><div class="tl-date">Jun 2005 – May 2006</div><div class="tl-role">Lecturer, Commerce</div><div class="tl-org">PVP College, Batlagundu</div></div>
+    <div class="tl-item"><div class="tl-date">2001 – Onwards</div><div class="tl-role">Founder, Sharp Tuition Centre</div><div class="tl-org">Over a decade of personalized academic mentorship, Madurai</div></div>
+    <div class="tl-item"><div class="tl-date">2001 – 2002</div><div class="tl-role">School Teacher</div><div class="tl-org">Modern Matriculation & BMS Schools, Madurai — where it all began.</div></div>
+  </div>
+</section>
+<section class="sec sec-dark">
+  <div class="eyebrow rev">Credentials</div>
+  <h2 class="big-h rev">Academic <em>Foundation</em></h2>
+  <div class="edu-stack">
+    <div class="edu-card"><div class="edu-ghost">P</div><div class="edu-yr">2006–2011</div><div class="edu-deg">Doctor of Philosophy</div><div class="edu-field">Ph.D. in Commerce</div><div class="edu-inst">Madurai Kamaraj University, Madurai</div></div>
+    <div class="edu-card"><div class="edu-ghost">G</div><div class="edu-yr">2011–2012</div><div class="edu-deg">Post Graduate Diploma</div><div class="edu-field">PGDCA — Computer Applications</div><div class="edu-inst">N.M.S.S.V.N College, Madurai</div></div>
+    <div class="edu-card"><div class="edu-ghost">M</div><div class="edu-yr">2004–2005</div><div class="edu-deg">Master of Philosophy</div><div class="edu-field">M.Phil. in Commerce</div><div class="edu-inst">Saraswathi Narayanan College, Madurai</div></div>
+    <div class="edu-card"><div class="edu-ghost">M</div><div class="edu-yr">2002–2004</div><div class="edu-deg">Master of Commerce</div><div class="edu-field">M.Com.</div><div class="edu-inst">Saraswathi Narayanan College, Madurai</div></div>
+    <div class="edu-card"><div class="edu-ghost">B</div><div class="edu-yr">1998–2001</div><div class="edu-deg">Bachelor of Commerce</div><div class="edu-field">B.Com.</div><div class="edu-inst">The Madura College, Madurai</div></div>
+  </div>
+</section>
+<footer><div><div class="foot-brand">Prof. Dr. P.S. <em>Senthilkumar</em></div><p class="foot-sub">Principal · Guinness World Record Holder · Commerce Scholar</p></div><div class="foot-links"><a href="index">Home</a><a href="awards">Awards</a><a href="yoga">Yoga</a><a href="contact">Contact</a></div></footer>
+<div class="foot-bottom"><p>© 2026 Prof. Dr. P.S. Senthilkumar</p><p>+91 9994080829</p></div>
+<script src="shared.js"></script>
+<script>
+document.querySelectorAll('.tl-item').forEach((el,i)=>{el.style.transitionDelay=i*0.08+'s';revObs.observe(el);});
+staggerReveal('.edu-card',.07);
+staggerReveal('.skills-list li',.06);
+</script>
+</body>
+</html>
