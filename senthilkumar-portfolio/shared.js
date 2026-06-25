@@ -110,20 +110,22 @@ function autoSpeak(){
   if(!window.speechSynthesis) return;
   const msg="Vanakkam! I am Professor Doctor P.S. Senthilkumar, Principal of KR Arts and Science College, Madurai. I hold a Guinness World Record for 59 hours of continuous Yoga without food or sleep! With 25 years in education, I believe teachers are the true architects of society. Welcome to my portfolio!";
   const u=new SpeechSynthesisUtterance(msg);
-  u.lang='en-IN'; u.rate=0.88; u.pitch=1.05;
+  u.lang='en-IN'; u.rate=0.88; u.pitch=0.85;
   const vs=speechSynthesis.getVoices();
-  const maleNames=['Male','male','David','James','Daniel','Rishi','Google हिन्दी','en-IN-Standard-B','en-IN-Wavenet-B','en-IN-Standard-C','en-IN-Wavenet-C'];
-  const v=vs.find(v=>maleNames.some(n=>v.name.includes(n))&&v.lang.startsWith('en'))
-    ||vs.find(v=>v.lang==='en-IN'&&v.name.toLowerCase().includes('male'))
-    ||vs.find(v=>v.name==='Google UK English Male')
-    ||vs.find(v=>v.name==='Microsoft David')
-    ||vs.find(v=>v.lang==='en-IN')
-    ||vs.find(v=>v.lang.startsWith('en'));
+  const maleNames=['Male','male','David','James','Daniel','Rishi','en-IN-Standard-B','en-IN-Wavenet-B'];
+  const v=vs.find(x=>maleNames.some(n=>x.name.includes(n))&&x.lang.startsWith('en'))
+    ||vs.find(x=>x.name==='Google UK English Male')
+    ||vs.find(x=>x.name==='Microsoft David - English (United States)')
+    ||vs.find(x=>x.lang==='en-IN')
+    ||vs.find(x=>x.lang.startsWith('en'));
   if(v) u.voice=v;
-  u.pitch=0.85;
   if(spOuter){u.onstart=()=>spOuter.classList.add('speaking');u.onend=()=>spOuter.classList.remove('speaking');}
-  speechSynthesis.cancel(); speechSynthesis.speak(u);
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
 }
+
+// Pre-load voices as early as possible
+if(window.speechSynthesis) speechSynthesis.getVoices();
 
 window.addEventListener('load',()=>{
   if(spBox){
@@ -132,18 +134,9 @@ window.addEventListener('load',()=>{
     function doSpeak(){
       if(spoken) return;
       spoken=true;
-      // Unlock audio context on iOS with a silent utterance first
-      const unlock=new SpeechSynthesisUtterance('');
-      speechSynthesis.speak(unlock);
-      speechSynthesis.cancel();
-      const trySpeak=()=>{
-        const vs=speechSynthesis.getVoices();
-        if(vs.length>0){ autoSpeak(); }
-        else{ speechSynthesis.onvoiceschanged=()=>{ speechSynthesis.onvoiceschanged=null; autoSpeak(); }; }
-      };
-      // Small delay to let voices load after unlock
-      setTimeout(trySpeak, 100);
+      // Must call speak() synchronously inside user gesture — no setTimeout
+      autoSpeak();
     }
-    ['click','scroll','touchstart'].forEach(ev=>document.addEventListener(ev,doSpeak,{once:true,passive:true}));
+    ['click','touchstart'].forEach(ev=>document.addEventListener(ev,doSpeak,{once:true,passive:true}));
   }
 });
