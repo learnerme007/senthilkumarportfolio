@@ -132,10 +132,17 @@ window.addEventListener('load',()=>{
     function doSpeak(){
       if(spoken) return;
       spoken=true;
+      // Unlock audio context on iOS with a silent utterance first
+      const unlock=new SpeechSynthesisUtterance('');
+      speechSynthesis.speak(unlock);
       speechSynthesis.cancel();
-      const vs=speechSynthesis.getVoices();
-      if(vs.length>0){ autoSpeak(); }
-      else{ speechSynthesis.onvoiceschanged=()=>{ speechSynthesis.onvoiceschanged=null; autoSpeak(); }; }
+      const trySpeak=()=>{
+        const vs=speechSynthesis.getVoices();
+        if(vs.length>0){ autoSpeak(); }
+        else{ speechSynthesis.onvoiceschanged=()=>{ speechSynthesis.onvoiceschanged=null; autoSpeak(); }; }
+      };
+      // Small delay to let voices load after unlock
+      setTimeout(trySpeak, 100);
     }
     ['click','scroll','touchstart'].forEach(ev=>document.addEventListener(ev,doSpeak,{once:true,passive:true}));
   }

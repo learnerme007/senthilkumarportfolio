@@ -46,10 +46,17 @@ body.cursor-hover #cur-ring{width:56px;height:56px;border-color:rgba(200,164,90,
 .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
 
 /* Mobile menu */
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,11,.98);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;transition:opacity .3s;}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(10,10,11,.97);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:0;opacity:0;transition:opacity .3s;overflow-y:auto;padding:5rem 2rem 3rem;}
 .mobile-menu.open{opacity:1;}
-.mobile-menu a{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);text-decoration:none;transition:color .2s;}
+.mobile-menu .mm-eyebrow{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;opacity:.6;text-align:center;}
+.mobile-menu a{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--white);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.75rem;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.06);width:100%;max-width:280px;}
+.mobile-menu a:last-of-type{border-bottom:none;}
+.mobile-menu a .mm-num{font-family:'Space Mono',monospace;font-size:.55rem;color:var(--gold);opacity:.45;min-width:1.4rem;}
 .mobile-menu a:hover,.mobile-menu a.active{color:var(--gold);}
+.mobile-menu a.active .mm-num{opacity:1;}
+.mobile-menu .mm-contact{margin-top:2rem;text-align:center;}
+.mobile-menu .mm-contact a{font-family:'Outfit',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--gold);padding:.65rem 2rem;display:inline-block;border-radius:2px;width:auto;border-bottom:1px solid var(--gold);}
+.mobile-menu .mm-contact a:hover{background:var(--gold);color:var(--bg);}
 
 /* ── PAGE HERO (inner pages) ── */
 .page-hero{padding:9rem 3rem 5rem;text-align:center;position:relative;overflow:hidden;background:var(--bg);}
@@ -126,4 +133,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:3rem
   footer{grid-template-columns:1fr;gap:1.5rem;}
   .foot-links{align-items:flex-start;}
   .foot-bottom{padding:1rem 1.4rem;}
+  /* Hide custom cursor on touch devices */
+  #cur,#cur-ring{display:none;}
+  body{cursor:auto;}
 }
